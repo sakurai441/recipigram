@@ -6,4 +6,9 @@ class User < ApplicationRecord
   :rememberable, :validatable
   attachment :profile_image
   has_many :recipes, dependent: :destroy
+
+  with_options presence: true do
+    validates :username
+    validates :email
+  end
 end
